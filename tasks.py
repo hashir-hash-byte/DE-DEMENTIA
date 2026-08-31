@@ -140,6 +140,7 @@ def confirm_task(task_id: int, payload: ConfirmRequest, db: Session = Depends(ge
         return {"task_id": task.id, "confidence": task.confidence, "status": task.status}
 
     db.commit()
+<<<<<<< HEAD
     return {"task_id": task.id, "confidence": task.confidence, "status": task.status, "message": "Not confirmed yet"}
 class VoiceResponseRequest(BaseModel):
     transcript: str
@@ -214,3 +215,6 @@ def get_voice_prompt(task_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Task not found")
 
     return {"task_id": task.id, "question_text": generate_question_text(task)}
+=======
+    return {"task_id": task.id, "confidence": task.confidence, "status": task.status, "message": "Not confirmed yet"}
+>>>>>>> 7f0157b7e41080d1009db12eb4b58175e0909d4c
